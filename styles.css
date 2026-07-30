@@ -1,0 +1,154 @@
+:root {
+  --loam: #241C16;
+  --fescue: #F5F0E4;
+  --ink: #1D1710;
+  --zoysia: #3F7D32;
+  --clay: #C1613B;
+  --stone: #9C9284;
+
+  --font-display: 'Unbounded', sans-serif;
+  --font-body: 'Karla', sans-serif;
+
+  --radius: 6px;
+  --wrap: 1240px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--fescue);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { margin: 0; padding: 0; list-style: none; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 2rem; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 0.98;
+  margin: 0;
+  color: var(--loam);
+  text-transform: uppercase;
+}
+.section--dark h1, .section--dark h2 { color: var(--fescue); }
+
+.eyebrow { display: block; font-weight: 800; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); margin-bottom: 1rem; }
+.section--dark .eyebrow { color: var(--zoysia); }
+
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; border-radius: var(--radius); font-family: var(--font-body); font-weight: 800; font-size: 0.95rem; border: 2px solid transparent; cursor: pointer; transition: transform .15s ease, background .15s ease; }
+.btn:hover { transform: translateY(-2px) rotate(-0.5deg); }
+.btn--primary { background: var(--zoysia); color: #fff; }
+.btn--primary:hover { background: #326527; }
+.btn--ghost { border-color: var(--loam); color: var(--loam); }
+.btn--ghost:hover { border-color: var(--clay); color: var(--clay); }
+.btn--dark-ghost { border-color: var(--fescue); color: var(--fescue); }
+
+/* ---------- The Exclamation — signature element ----------
+   Replaces the story-pole. Reviewers write about Zach in ALL CAPS
+   with exclamation points ("GENIOUS!!!!!", "PERFECT!!!!!") — so the
+   signature device is a single giant "!" fixed at the left edge that
+   grows larger and bolder as you scroll, literally scaling up the
+   enthusiasm reviewers already bring, instead of a wayfinding rail. */
+.exclaim { position: fixed; left: -0.5rem; bottom: 1rem; z-index: 60; font-family: var(--font-display); font-weight: 800; color: var(--zoysia); opacity: 0.85; display: none; pointer-events: none; transform-origin: bottom left; }
+@media (min-width: 1060px) { .exclaim { display: block; } }
+
+/* ---------- Header ---------- */
+.site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 1.2rem 0; transition: background .2s ease, padding .2s ease, box-shadow .2s ease; }
+.site-header .wrap { display: flex; align-items: center; gap: 1.5rem; }
+.site-header.solid { background: var(--fescue); padding: 0.75rem 0; box-shadow: 0 2px 18px rgba(29,23,16,0.1); }
+.logo { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; margin-right: auto; text-transform: uppercase; }
+.logo span { color: var(--clay); }
+.preview-flag { font-size: 0.78rem; font-weight: 700; padding: 0.4rem 0.9rem; border-radius: 999px; border: 1px solid var(--stone); color: var(--stone); white-space: nowrap; }
+.preview-flag:hover { border-color: var(--clay); color: var(--clay); }
+.main-nav { display: none; gap: 1.7rem; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; }
+.main-nav a:hover { color: var(--zoysia); }
+@media (min-width: 900px) { .main-nav { display: flex; } }
+.nav-toggle { background: none; border: 2px solid var(--loam); border-radius: var(--radius); padding: 0.5rem 0.9rem; font-weight: 800; font-size: 0.85rem; cursor: pointer; }
+@media (min-width: 900px) { .nav-toggle { display: none; } }
+.mobile-nav { position: fixed; inset: 0; z-index: 70; background: var(--loam); color: var(--fescue); display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 1.6rem; padding: 2rem 2.5rem; transform: translateX(100%); transition: transform .3s ease; }
+.mobile-nav.open { transform: translateX(0); }
+.mobile-nav a { font-family: var(--font-display); font-size: 1.8rem; text-transform: uppercase; }
+.mobile-nav__close { position: absolute; top: 1.5rem; right: 1.8rem; background: none; border: none; color: var(--fescue); font-weight: 700; cursor: pointer; }
+
+/* ---------- Hero — oversized, asymmetric, off-balance type ---------- */
+.hero { padding: 10rem 0 5rem; position: relative; }
+.hero__headline { font-size: clamp(3rem, 10vw, 7.5rem); letter-spacing: -0.02em; }
+.hero__headline .pop { color: var(--zoysia); display: block; margin-left: clamp(0px, 8vw, 5rem); }
+.hero__dek { max-width: 46ch; margin: 2rem 0 2rem clamp(0px, 6vw, 3rem); font-size: 1.15rem; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-left: clamp(0px, 6vw, 3rem); }
+
+/* ---------- Section shell ---------- */
+.section { padding: 5.5rem 0; }
+.section--dark { background: var(--loam); color: var(--fescue); }
+.section-dek { margin-top: 1rem; opacity: 0.9; font-size: 1.08rem; max-width: 60ch; }
+
+/* ---------- Meet Zach — lead section, asymmetric ---------- */
+.zach-layout { display: grid; gap: 2.5rem; grid-template-columns: 1fr; }
+@media (min-width: 980px) { .zach-layout { grid-template-columns: 1.1fr 0.9fr; align-items: center; } }
+.zach-media { transform: rotate(-1.2deg); }
+.zach-media img { border-radius: var(--radius); box-shadow: 0 30px 60px -20px rgba(29,23,16,0.4); }
+.zach-quote { font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 2.2rem); text-transform: none; line-height: 1.15; margin: 1.2rem 0; color: var(--zoysia); }
+.zach-copy p { max-width: 50ch; margin: 1rem 0; }
+
+/* ---------- Services (secondary) ---------- */
+.services-grid { display: grid; gap: 1.4rem; grid-template-columns: 1fr; margin-top: 1rem; }
+@media (min-width: 780px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+.service-card { background: rgba(245,240,228,0.06); border: 1px solid rgba(245,240,228,0.18); border-radius: var(--radius); padding: 2.1rem 1.8rem; }
+.service-card h3 { font-size: 1.15rem; text-transform: none; margin-bottom: 0.6rem; }
+.service-card a { font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: var(--zoysia); }
+
+/* ---------- Reviews — oversized editorial pull-quotes ---------- */
+.pullquotes { display: grid; gap: 3rem; margin-top: 1rem; }
+.pullquote { max-width: 46rem; }
+.pullquote:nth-child(even) { margin-left: auto; text-align: right; }
+.pullquote blockquote { font-family: var(--font-display); font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.05; text-transform: uppercase; margin: 0 0 1rem; }
+.pullquote cite { font-style: normal; font-weight: 700; font-size: 0.85rem; color: var(--clay); text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* ---------- Process ---------- */
+.process-grid { display: grid; gap: 1.4rem; grid-template-columns: 1fr; margin-top: 1rem; }
+@media (min-width: 780px) { .process-grid { grid-template-columns: repeat(3, 1fr); } }
+.process-step { background: rgba(245,240,228,0.06); padding: 2rem 1.6rem; border-radius: var(--radius); border: 1px solid rgba(245,240,228,0.18); }
+.process-step b { display: block; font-family: var(--font-display); font-size: 2rem; color: var(--clay); margin-bottom: 0.6rem; }
+
+/* ---------- Area ---------- */
+.area-list { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.4rem; }
+.area-list li { padding: 0.5rem 1.1rem; border: 1px solid var(--loam); border-radius: 999px; font-weight: 700; font-size: 0.9rem; }
+
+/* ---------- Contact ---------- */
+.contact-layout { display: grid; gap: 2.5rem; grid-template-columns: 1fr; margin-top: 1rem; }
+@media (min-width: 900px) { .contact-layout { grid-template-columns: 0.8fr 1.2fr; } }
+.contact-direct div { margin-bottom: 1.6rem; }
+.contact-direct__label { display: block; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--clay); margin-bottom: 0.3rem; }
+.contact-direct a { font-family: var(--font-display); font-size: 1.4rem; }
+.contact-form { display: grid; gap: 1.1rem; }
+.form-row { display: grid; gap: 1.1rem; grid-template-columns: 1fr; }
+@media (min-width: 560px) { .form-row { grid-template-columns: 1fr 1fr; } }
+.field label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; }
+.field input, .field select, .field textarea { width: 100%; padding: 0.8rem 1rem; border-radius: var(--radius); border: 1.5px solid rgba(29,23,16,0.18); background: rgba(29,23,16,0.03); color: var(--ink); font-family: var(--font-body); font-size: 0.95rem; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--zoysia); }
+.form-status { min-height: 1.2rem; font-size: 0.9rem; color: var(--zoysia); }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--ink); color: var(--fescue); padding: 2.6rem 0; }
+.site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.2rem; }
+.footer-fine { width: 100%; font-size: 0.8rem; opacity: 0.6; margin-top: 1rem; }
+.footer-links { display: flex; gap: 1.4rem; font-size: 0.85rem; }
+
+/* ---------- Buy-this-site page ---------- */
+.pitch-hero { padding: 9.5rem 0 4rem; text-align: center; }
+.pitch-hero p { max-width: 56ch; margin: 1.3rem auto 0; font-size: 1.1rem; }
+.pitch-grid { display: grid; gap: 1.4rem; grid-template-columns: 1fr; margin-top: 1rem; }
+@media (min-width: 780px) { .pitch-grid { grid-template-columns: repeat(3, 1fr); } }
+.pitch-card { background: rgba(29,23,16,0.04); border: 1px solid rgba(29,23,16,0.12); border-radius: var(--radius); padding: 2rem 1.6rem; }
+.pitch-card h3 { font-size: 1.05rem; text-transform: none; margin-bottom: 0.6rem; }
+.price-block { margin-top: 1rem; padding: 2.4rem; border: 2px dashed var(--stone); border-radius: var(--radius); text-align: center; }
+.price-block b { display: block; font-family: var(--font-display); font-size: 1.5rem; }
+.price-block span { display: block; margin-top: 0.5rem; font-size: 0.9rem; color: var(--stone); }
