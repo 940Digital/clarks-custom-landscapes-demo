@@ -107,6 +107,7 @@ h1, h2, h3 {
 /* ---------- Services (secondary) ---------- */
 .services-grid { display: grid; gap: 1.4rem; grid-template-columns: 1fr; margin-top: 1rem; }
 @media (min-width: 780px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 780px) { .services-grid--three { grid-template-columns: repeat(3, 1fr); } }
 .service-card { background: rgba(245,240,228,0.06); border: 1px solid rgba(245,240,228,0.18); border-radius: var(--radius); padding: 2.1rem 1.8rem; }
 .service-card h3 { font-size: 1.15rem; text-transform: none; margin-bottom: 0.6rem; }
 .service-card a { font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: var(--zoysia); }
